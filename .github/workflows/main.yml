@@ -169,9 +169,7 @@ jobs:
         call "%JAVA_HOME%\bin\gu" install native-image
         call "%VCVARS_BAT%"
         call .\mvnw --batch-mode -Dsha1="%GITHUB_SHA%" -Drevision="%REVISION%" --settings .\.github\github-actions-windows-maven-settings.xml verify client:build client:package
-        .\target\%ARTIFACT%-windows-%REVISION%.exe
-        upx --brute target/%ARTIFACT%-windows-%REVISION%.exe
-        .\target\%ARTIFACT%-windows-%REVISION%.exe
+        upx --brute target/client/x86_64-windows/%ARTIFACT%.exe
         mkdir target\artifacts
         copy "target\client\x86_64-windows\%ARTIFACT%.exe" "target\artifacts\%ARTIFACT%-windows-%REVISION%.exe"
     - uses: actions/upload-artifact@v2.2.3
