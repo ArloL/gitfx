@@ -35,7 +35,7 @@
         <sha1>HEAD</sha1>
         <revision>0.0.1-SNAPSHOT</revision>
         <platform>unknown</platform>
-        <mainClass>gitfx.gitfx</mainClass>
+        <mainClass>gitfx.GitFX</mainClass>
     </properties>
 
     <profiles>
