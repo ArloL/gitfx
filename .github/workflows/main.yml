@@ -166,7 +166,7 @@ jobs:
       run: |
         call "%JAVA_HOME%\bin\gu" install native-image
         call "%VCVARS_BAT%"
-        call .\mvnw --batch-mode -Dsha1="%GITHUB_SHA%" -Drevision="%REVISION%" --settings .\.github\github-actions-windows-maven-settings.xml  verify
+        call .\mvnw --batch-mode -Dsha1="%GITHUB_SHA%" -Drevision="%REVISION%" --settings .\.github\github-actions-windows-maven-settings.xml verify client:build client:package
         .\target\%ARTIFACT%-windows-%REVISION%.exe
         upx --brute target/%ARTIFACT%-windows-%REVISION%.exe
         .\target\%ARTIFACT%-windows-%REVISION%.exe
