@@ -1,0 +1,10 @@
+{
+  "resources":[
+    {"pattern":"\\Qorg/slf4j/impl/StaticLoggerBinder.class\\E"}, 
+    {"pattern":"org/eclipse/jgit/internal/JGitText.properties"}, 
+    {"pattern":"org/slf4j/impl/StaticLoggerBinder.class"}
+  ],
+  "bundles":[
+    {"name":"org.eclipse.jgit.internal.JGitText"}
+  ]
+}

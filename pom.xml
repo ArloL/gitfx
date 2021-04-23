@@ -81,6 +81,21 @@
             <artifactId>javafx-controls</artifactId>
             <version>16</version>
         </dependency>
+        <dependency>
+            <groupId>org.eclipse.jgit</groupId>
+            <artifactId>org.eclipse.jgit</artifactId>
+            <version>5.11.0.202103091610-r</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-nop</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.spotbugs</groupId>
+            <artifactId>spotbugs-annotations</artifactId>
+            <version>4.2.3</version>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 
     <build>
