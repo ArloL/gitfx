@@ -8,17 +8,18 @@ cd "$(dirname "$0")" || exit 1
 
 EXECUTABLE=${1}
 APPNAME=${2}
-SOURCE_DIRECTORY=${3:-}
+RESOURCE_DIRECTORY=${3:-}
 
-TARGET_DIRECTORY="target/${APPNAME}.app/Contents/MacOS"
+CONTENTS="target/${APPNAME}.app/Contents"
 
-rm -rf "target/${APPNAME}.app"
+rm -rf "${CONTENTS}"
 
-mkdir -p "${TARGET_DIRECTORY}"
+mkdir -p "${CONTENTS}/MacOS"
+mkdir -p "${CONTENTS}/Resources"
 
-cp "${EXECUTABLE}" "${TARGET_DIRECTORY}/${APPNAME}"
-chmod +x "${TARGET_DIRECTORY}/${APPNAME}"
+cp "${EXECUTABLE}" "${CONTENTS}/MacOS/${APPNAME}"
+chmod +x "${CONTENTS}/MacOS/${APPNAME}"
 
-if [ -d "${SOURCE_DIRECTORY}" ]; then
-    cp -R "${SOURCE_DIRECTORY}/." "${TARGET_DIRECTORY}"
+if [ -d "${RESOURCE_DIRECTORY}" ]; then
+    cp -R "${RESOURCE_DIRECTORY}/." "${CONTENTS}/Resources"
 fi
