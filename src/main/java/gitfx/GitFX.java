@@ -50,6 +50,13 @@ public class GitFX extends Application {
 
 	@Override
 	public void start(Stage stage) {
+		String path;
+		if (!getParameters().getUnnamed().isEmpty()) {
+			path = getParameters().getUnnamed().get(0);
+		} else {
+			path = System.getProperty("user.dir");
+		}
+
 		Label git = new Label("...");
 
 		VBox root = new VBox(30, git);
@@ -60,7 +67,6 @@ public class GitFX extends Application {
 
 		executor.execute(() -> {
 			try {
-				String path = System.getProperty("user.dir");
 				String jgit = jgit(path).limit(10)
 						.map(RevCommit::getShortMessage)
 						.collect(joining("\n"));
