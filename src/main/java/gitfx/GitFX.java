@@ -31,10 +31,10 @@ public class GitFX extends Application {
 	Repository repository;
 
 	@SuppressFBWarnings(value = "BC_UNCONFIRMED_CAST_OF_RETURN_VALUE", justification = "FileRepositoryBuilder uses generics which spotbugs cant know")
-	private Stream<RevCommit> jgit() throws IOException {
+	private Stream<RevCommit> jgit(String path) throws IOException {
 		repository = new FileRepositoryBuilder().setMustExist(true)
 				.readEnvironment()
-				.findGitDir(new File("/Users/aokeeffe/.dotfiles"))
+				.findGitDir(new File(path))
 				.build();
 		RevWalk revWalk = new RevWalk(repository);
 		ObjectId headId = repository.resolve(Constants.HEAD);
@@ -60,7 +60,8 @@ public class GitFX extends Application {
 
 		executor.execute(() -> {
 			try {
-				String jgit = jgit().limit(10)
+				String path = System.getProperty("user.dir");
+				String jgit = jgit(path).limit(10)
 						.map(RevCommit::getShortMessage)
 						.collect(joining("\n"));
 				Platform.runLater(() -> git.setText(jgit));
