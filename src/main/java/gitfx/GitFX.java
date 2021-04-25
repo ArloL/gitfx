@@ -23,6 +23,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import jfxtras.styles.jmetro.JMetro;
+import jfxtras.styles.jmetro.JMetroStyleClass;
+import jfxtras.styles.jmetro.Style;
 
 public class GitFX extends Application {
 
@@ -60,8 +63,14 @@ public class GitFX extends Application {
 		Label git = new Label("...");
 
 		VBox root = new VBox(30, git);
+		root.getStyleClass().add(JMetroStyleClass.BACKGROUND);
 		root.setAlignment(Pos.CENTER);
+
 		Scene scene = new Scene(root, 640, 480);
+
+		JMetro jMetro = new JMetro(Style.DARK);
+		jMetro.setScene(scene);
+
 		stage.setScene(scene);
 		stage.show();
 

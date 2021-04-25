@@ -208,6 +208,25 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.jfxtras</groupId>
+            <artifactId>jmetro</artifactId>
+            <version>11.6.14</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.openjfx</groupId>
+                    <artifactId>javafx-controls</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.openjfx</groupId>
+                    <artifactId>javafx-graphics</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.openjfx</groupId>
+                    <artifactId>javafx-base</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
         </dependency>
