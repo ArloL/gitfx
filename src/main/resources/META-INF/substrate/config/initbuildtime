@@ -1,5 +1,0 @@
-org.eclipse.jgit.lib.ObjectId
-org.eclipse.jgit.diff.RenameDetector
-org.eclipse.jgit.diff.DiffEntry
-org.eclipse.jgit.ignore.internal.Strings
-org.eclipse.jgit.attributes.AttributesHandler
