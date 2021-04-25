@@ -337,6 +337,21 @@
                     <mainClass>${mainClass}</mainClass>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <mainClass>${mainClass}</mainClass>
+                    <executable>${env.JAVA_HOME}/bin/java</executable>
+                    <arguments>
+                        <argument>-agentlib:native-image-agent=access-filter-file=src/main/resources/META-INF/native-image/filter-file.json,config-merge-dir=src/main/resources/META-INF/native-image</argument>
+                        <argument>-classpath</argument>
+                        <classpath />
+                        <argument>${mainClass}</argument>
+                    </arguments>
+                </configuration>
+            </plugin>
         </plugins>
         <pluginManagement>
             <plugins>
