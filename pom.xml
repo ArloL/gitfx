@@ -375,7 +375,7 @@
                     <mainClass>${mainClass}</mainClass>
                     <executable>${env.JAVA_HOME}/bin/java</executable>
                     <arguments>
-                        <argument>-agentlib:native-image-agent=access-filter-file=src/main/resources/META-INF/native-image/filter-file.json,config-merge-dir=src/main/resources/META-INF/native-image</argument>
+                        <argument>-agentlib:native-image-agent=access-filter-file=${project.basedir}/src/main/resources/META-INF/native-image/filter-file.json,config-merge-dir=${project.basedir}/src/main/resources/META-INF/native-image</argument>
                         <argument>-classpath</argument>
                         <classpath />
                         <argument>${mainClass}</argument>
