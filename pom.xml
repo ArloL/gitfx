@@ -210,7 +210,7 @@
         <dependency>
             <groupId>org.jfxtras</groupId>
             <artifactId>jmetro</artifactId>
-            <version>11.6.14</version>
+            <version>11.6.15</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.openjfx</groupId>
