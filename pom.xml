@@ -375,7 +375,7 @@
             <plugin>
                 <groupId>com.gluonhq</groupId>
                 <artifactId>client-maven-plugin</artifactId>
-                <version>0.1.39</version>
+                <version>0.1.40</version>
                 <configuration>
                     <mainClass>${mainClass}</mainClass>
                 </configuration>
