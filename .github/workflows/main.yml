@@ -92,7 +92,7 @@ jobs:
         upx --brute "target/client/x86_64-darwin/${ARTIFACT}"
         mkdir target/artifacts
         cp "target/client/x86_64-darwin/${ARTIFACT}" "target/artifacts/${ARTIFACT}-darwin-${REVISION}"
-    - uses: actions/upload-artifact@v2.2.3
+    - uses: actions/upload-artifact@v2.2.4
       with:
         name: ${{ env.ARTIFACT }}-${{ github.job }}-${{ needs.version.outputs.new_version }}
         path: target/artifacts
@@ -134,7 +134,7 @@ jobs:
         ./upx-3.96-amd64_linux/upx "target/client/x86_64-linux/${ARTIFACT}"
         mkdir target/artifacts
         cp "target/client/x86_64-linux/${ARTIFACT}" "target/artifacts/${ARTIFACT}-linux-${REVISION}"
-    - uses: actions/upload-artifact@v2.2.3
+    - uses: actions/upload-artifact@v2.2.4
       with:
         name: ${{ env.ARTIFACT }}-${{ github.job }}-${{ needs.version.outputs.new_version }}
         path: target/artifacts
@@ -172,7 +172,7 @@ jobs:
         upx --brute target/client/x86_64-windows/%ARTIFACT%.exe
         mkdir target\artifacts
         copy "target\client\x86_64-windows\%ARTIFACT%.exe" "target\artifacts\%ARTIFACT%-windows-%REVISION%.exe"
-    - uses: actions/upload-artifact@v2.2.3
+    - uses: actions/upload-artifact@v2.2.4
       with:
         name: ${{ env.ARTIFACT }}-${{ github.job }}-${{ needs.version.outputs.new_version }}
         path: target/artifacts
