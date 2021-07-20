@@ -93,11 +93,11 @@ jobs:
           verify gluonfx:build gluonfx:package
     - name: Compress executable
       run: |
-        upx "target/client/x86_64-darwin/${ARTIFACT}"
+        upx "target/gluonfx/x86_64-darwin/${ARTIFACT}"
     - name: Move artifacts
       run: |
         mkdir target/artifacts
-        cp "target/client/x86_64-darwin/${ARTIFACT}" "target/artifacts/${ARTIFACT}-darwin-${REVISION}"
+        cp "target/gluonfx/x86_64-darwin/${ARTIFACT}" "target/artifacts/${ARTIFACT}-darwin-${REVISION}"
     - uses: actions/upload-artifact@v2.2.4
       with:
         name: ${{ env.ARTIFACT }}-${{ github.job }}-${{ needs.version.outputs.new_version }}
@@ -142,11 +142,11 @@ jobs:
           verify gluonfx:build gluonfx:package
     - name: Compress executable
       run: |
-        ./upx-3.96-amd64_linux/upx "target/client/x86_64-linux/${ARTIFACT}"
+        ./upx-3.96-amd64_linux/upx "target/gluonfx/x86_64-linux/${ARTIFACT}"
     - name: Move artifacts
       run: |
         mkdir target/artifacts
-        cp "target/client/x86_64-linux/${ARTIFACT}" "target/artifacts/${ARTIFACT}-linux-${REVISION}"
+        cp "target/gluonfx/x86_64-linux/${ARTIFACT}" "target/artifacts/${ARTIFACT}-linux-${REVISION}"
     - uses: actions/upload-artifact@v2.2.4
       with:
         name: ${{ env.ARTIFACT }}-${{ github.job }}-${{ needs.version.outputs.new_version }}
@@ -185,11 +185,11 @@ jobs:
         call .\mvnw --batch-mode -Dsha1="%GITHUB_SHA%" -Drevision="%REVISION%" --settings .\.github\github-actions-windows-maven-settings.xml verify gluonfx:build gluonfx:package
     - name: Compress executable
       run: |
-        upx target/client/x86_64-windows/$env:ARTIFACT.exe
+        upx target/gluonfx/x86_64-windows/$env:ARTIFACT.exe
     - name: Move artifacts
       run: |
         mkdir target/artifacts
-        copy "target\client\x86_64-windows\$env:ARTIFACT.exe" "target\artifacts\$env:ARTIFACT-windows-$env:REVISION.exe"
+        copy "target\gluonfx\x86_64-windows\$env:ARTIFACT.exe" "target\artifacts\$env:ARTIFACT-windows-$env:REVISION.exe"
     - uses: actions/upload-artifact@v2.2.4
       with:
         name: ${{ env.ARTIFACT }}-${{ github.job }}-${{ needs.version.outputs.new_version }}
