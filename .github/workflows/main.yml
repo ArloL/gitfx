@@ -91,7 +91,7 @@ jobs:
           -Dsha1="${GITHUB_SHA}" \
           -Drevision="${REVISION}" \
           verify client:build client:package
-    - name: Test and compress executable
+    - name: Compress executable
       run: |
         upx "target/client/x86_64-darwin/${ARTIFACT}"
     - name: Move artifacts
@@ -140,7 +140,7 @@ jobs:
           -Dsha1="${GITHUB_SHA}" \
           -Drevision="${REVISION}" \
           verify client:build client:package
-    - name: Test and compress executable
+    - name: Compress executable
       run: |
         ./upx-3.96-amd64_linux/upx "target/client/x86_64-linux/${ARTIFACT}"
     - name: Move artifacts
@@ -183,7 +183,7 @@ jobs:
       run: |
         call "%VCVARS_BAT%"
         call .\mvnw --batch-mode -Dsha1="%GITHUB_SHA%" -Drevision="%REVISION%" --settings .\.github\github-actions-windows-maven-settings.xml verify client:build client:package
-    - name: Test and compress executable
+    - name: Compress executable
       run: |
         upx target/client/x86_64-windows/$env:ARTIFACT.exe
     - name: Move artifacts
