@@ -374,8 +374,8 @@
             </plugin>
             <plugin>
                 <groupId>com.gluonhq</groupId>
-                <artifactId>client-maven-plugin</artifactId>
-                <version>0.1.42</version>
+                <artifactId>gluonfx-maven-plugin</artifactId>
+                <version>1.0.3</version>
                 <configuration>
                     <mainClass>${mainClass}</mainClass>
                 </configuration>
