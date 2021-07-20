@@ -10,8 +10,8 @@ Run the application using:
 
 Build a native image using:
 
-    mvn client:build
+    mvn gluonfx:build
 
 Run the native image app:
 
-    mvn client:run
+    mvn gluonfx:run

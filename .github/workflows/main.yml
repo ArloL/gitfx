@@ -90,7 +90,7 @@ jobs:
           --batch-mode \
           -Dsha1="${GITHUB_SHA}" \
           -Drevision="${REVISION}" \
-          verify client:build client:package
+          verify gluonfx:build gluonfx:package
     - name: Compress executable
       run: |
         upx "target/client/x86_64-darwin/${ARTIFACT}"
@@ -139,7 +139,7 @@ jobs:
           --batch-mode \
           -Dsha1="${GITHUB_SHA}" \
           -Drevision="${REVISION}" \
-          verify client:build client:package
+          verify gluonfx:build gluonfx:package
     - name: Compress executable
       run: |
         ./upx-3.96-amd64_linux/upx "target/client/x86_64-linux/${ARTIFACT}"
@@ -182,7 +182,7 @@ jobs:
       shell: cmd
       run: |
         call "%VCVARS_BAT%"
-        call .\mvnw --batch-mode -Dsha1="%GITHUB_SHA%" -Drevision="%REVISION%" --settings .\.github\github-actions-windows-maven-settings.xml verify client:build client:package
+        call .\mvnw --batch-mode -Dsha1="%GITHUB_SHA%" -Drevision="%REVISION%" --settings .\.github\github-actions-windows-maven-settings.xml verify gluonfx:build gluonfx:package
     - name: Compress executable
       run: |
         upx target/client/x86_64-windows/$env:ARTIFACT.exe
