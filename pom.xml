@@ -37,7 +37,7 @@
         <platform>unknown</platform>
         <mainClass>gitfx.Bootstrap</mainClass>
 
-        <javafx.version>16</javafx.version>
+        <javafx.version>17</javafx.version>
     </properties>
 
     <profiles>
