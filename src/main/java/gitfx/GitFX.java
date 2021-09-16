@@ -55,6 +55,7 @@ public class GitFX extends Application {
 
 	@Override
 	public void start(Stage stage) {
+		System.setProperty("prism.lcdtext", "false");
 		String path;
 		if (!getParameters().getUnnamed().isEmpty()) {
 			path = getParameters().getUnnamed().get(0);
