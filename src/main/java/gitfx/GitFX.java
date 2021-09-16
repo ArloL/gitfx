@@ -56,6 +56,7 @@ public class GitFX extends Application {
 	@Override
 	public void start(Stage stage) {
 		System.setProperty("prism.lcdtext", "false");
+		System.setProperty("sun.java2d.uiScale", "2");
 		String path;
 		if (!getParameters().getUnnamed().isEmpty()) {
 			path = getParameters().getUnnamed().get(0);
