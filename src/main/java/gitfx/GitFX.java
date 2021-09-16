@@ -77,6 +77,9 @@ public class GitFX extends Application {
 		stage.setScene(scene);
 		stage.show();
 
+		stage.renderScaleXProperty().set(2);
+		stage.renderScaleYProperty().set(2);
+
 		executor.execute(() -> {
 			try {
 				String jgit = jgit(path).limit(10)
