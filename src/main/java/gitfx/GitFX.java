@@ -5,6 +5,7 @@ import static java.util.stream.Collectors.joining;
 import java.io.File;
 import java.io.IOException;
 import java.io.UncheckedIOException;
+import java.nio.file.Paths;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.stream.Stream;
 
@@ -35,9 +36,10 @@ public class GitFX extends Application {
 
 	@SuppressFBWarnings(value = "BC_UNCONFIRMED_CAST_OF_RETURN_VALUE", justification = "FileRepositoryBuilder uses generics which spotbugs cant know")
 	private Stream<RevCommit> jgit(String path) throws IOException {
+		File gitDir = Paths.get(path).toAbsolutePath().normalize().toFile();
 		repository = new FileRepositoryBuilder().setMustExist(true)
 				.readEnvironment()
-				.findGitDir(new File(path))
+				.findGitDir(gitDir)
 				.build();
 		RevWalk revWalk = new RevWalk(repository);
 		ObjectId headId = repository.resolve(Constants.HEAD);
@@ -57,7 +59,7 @@ public class GitFX extends Application {
 		if (!getParameters().getUnnamed().isEmpty()) {
 			path = getParameters().getUnnamed().get(0);
 		} else {
-			path = System.getProperty("user.dir");
+			path = "";
 		}
 
 		Label git = new Label("...");
