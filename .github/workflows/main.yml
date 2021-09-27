@@ -69,7 +69,7 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
     - name: Setup Graalvm
-      uses: DeLaGuardo/setup-graalvm@4.0
+      uses: DeLaGuardo/setup-graalvm@5.0
       with:
         graalvm: ${{ env.GRAALVM_VERSION }}
         java: 'java11'
@@ -114,7 +114,7 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
     - name: Setup Graalvm
-      uses: DeLaGuardo/setup-graalvm@4.0
+      uses: DeLaGuardo/setup-graalvm@5.0
       with:
         graalvm: ${{ env.GRAALVM_VERSION }}
         java: 'java11'
@@ -164,7 +164,7 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
     - name: Setup Graalvm
-      uses: DeLaGuardo/setup-graalvm@4.0
+      uses: DeLaGuardo/setup-graalvm@5.0
       with:
         graalvm: ${{ env.GRAALVM_VERSION }}
         java: 'java11'
