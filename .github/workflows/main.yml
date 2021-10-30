@@ -6,7 +6,7 @@ on:
   - cron: 50 6 21 * *
 env:
   ARTIFACT: gitfx
-  GRAALVM_VERSION: 21.2.0
+  GRAALVM_VERSION: 21.3.0
 
 jobs:
   debug:
