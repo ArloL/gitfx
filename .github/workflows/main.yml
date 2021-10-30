@@ -99,6 +99,9 @@ jobs:
       run: |
         mkdir target/artifacts
         cp "target/gluonfx/x86_64-darwin/${ARTIFACT}" "target/artifacts/${ARTIFACT}-darwin-${REVISION}"
+    - name: Create app
+      run: |
+        ./appify.sh "target/gluonfx/x86_64-darwin/${ARTIFACT}" ${ARTIFACT} "./src/main/packaging/macos/"
     - uses: actions/upload-artifact@v2.2.4
       with:
         name: ${{ env.ARTIFACT }}-${{ github.job }}-${{ needs.version.outputs.new_version }}

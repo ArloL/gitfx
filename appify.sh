@@ -10,7 +10,7 @@ EXECUTABLE=${1}
 APPNAME=${2}
 RESOURCE_DIRECTORY=${3:-}
 
-CONTENTS="target/${APPNAME}.app/Contents"
+CONTENTS="target/artifacts/${APPNAME}.app/Contents"
 
 rm -rf "${CONTENTS}"
 
