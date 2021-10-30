@@ -211,6 +211,8 @@ jobs:
     - name: Build project
       working-directory: target
       run: |
+        chmod +x ${{ env.ARTIFACT }}-macos-${{ needs.version.outputs.new_version }}/${{ env.ARTIFACT }}.app/Contents/MacOS/${{ env.ARTIFACT }}
+        chmod +x ${{ env.ARTIFACT }}-macos-${{ needs.version.outputs.new_version }}/${{ env.ARTIFACT }}.app/Contents/Resources/bin/*
         zip -r windows.zip ${{ env.ARTIFACT }}-windows-${{ needs.version.outputs.new_version }}/
         zip -r linux.zip ${{ env.ARTIFACT }}-linux-${{ needs.version.outputs.new_version }}/
         zip -r macos.zip ${{ env.ARTIFACT }}-macos-${{ needs.version.outputs.new_version }}/
