@@ -102,7 +102,7 @@ jobs:
     - name: Create app
       run: |
         ./appify.sh "target/gluonfx/x86_64-darwin/${ARTIFACT}" ${ARTIFACT} "./src/main/packaging/macos/"
-    - uses: actions/upload-artifact@v2.2.4
+    - uses: actions/upload-artifact@v2.3.0
       with:
         name: ${{ env.ARTIFACT }}-${{ github.job }}-${{ needs.version.outputs.new_version }}
         path: target/artifacts
@@ -151,7 +151,7 @@ jobs:
       run: |
         mkdir target/artifacts
         cp "target/gluonfx/x86_64-linux/${ARTIFACT}" "target/artifacts/${ARTIFACT}-linux-${REVISION}"
-    - uses: actions/upload-artifact@v2.2.4
+    - uses: actions/upload-artifact@v2.3.0
       with:
         name: ${{ env.ARTIFACT }}-${{ github.job }}-${{ needs.version.outputs.new_version }}
         path: target/artifacts
@@ -194,7 +194,7 @@ jobs:
       run: |
         mkdir target/artifacts
         copy "target\gluonfx\x86_64-windows\$env:ARTIFACT.exe" "target\artifacts\$env:ARTIFACT-windows-$env:REVISION.exe"
-    - uses: actions/upload-artifact@v2.2.4
+    - uses: actions/upload-artifact@v2.3.0
       with:
         name: ${{ env.ARTIFACT }}-${{ github.job }}-${{ needs.version.outputs.new_version }}
         path: target/artifacts
