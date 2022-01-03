@@ -99,6 +99,7 @@ jobs:
       run: |
         mkdir target/artifacts
         cp "target/gluonfx/x86_64-darwin/${ARTIFACT}" "target/artifacts/${ARTIFACT}-darwin-${REVISION}"
+        cp -r "./src/main/packaging/macos/." "target/gluonfx/x86_64-darwin/${ARTIFACT}.app/Contents/Resources"
         cp -r "target/gluonfx/x86_64-darwin/${ARTIFACT}.app" "target/artifacts/"
     - uses: actions/upload-artifact@v2.3.1
       with:
