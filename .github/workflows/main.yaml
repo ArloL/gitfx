@@ -175,6 +175,8 @@ jobs:
       run: '& "$env:JAVA_HOME\bin\gu" install native-image'
     - name: Install upx
       run: choco install upx --version=3.96 --no-progress
+    - name: Install WiX Toolset
+      run: choco install wixtoolset --version=3.11.2 --no-progress
     - name: Cache Maven packages
       uses: actions/cache@v2.1.7
       with:
