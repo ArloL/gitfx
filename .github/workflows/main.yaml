@@ -155,7 +155,7 @@ jobs:
         name: ${{ env.ARTIFACT }}-${{ github.job }}-${{ needs.version.outputs.new_version }}
         path: target/artifacts
   windows:
-    runs-on: windows-latest
+    runs-on: windows-2019
     needs: version
     env:
       REVISION: ${{ needs.version.outputs.new_version }}
