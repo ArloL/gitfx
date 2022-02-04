@@ -380,7 +380,7 @@
                     <mainClass>${mainClass}</mainClass>
                     <releaseConfiguration>
                         <skipSigning>true</skipSigning>
-                        <appDescription>appDescription</appDescription>
+                        <description>appDescription</description>
                         <vendor>vendor</vendor>
                     </releaseConfiguration>
                 </configuration>
