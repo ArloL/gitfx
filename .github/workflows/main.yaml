@@ -6,7 +6,7 @@ on:
   - cron: '45 22 4 * *'
 env:
   ARTIFACT: gitfx
-  GRAALVM_VERSION: 21.3.0
+  GRAALVM_VERSION: 22.0.0.2
   JAVA_VERSION: 17
 
 jobs:
