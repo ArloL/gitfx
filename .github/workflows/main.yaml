@@ -174,14 +174,14 @@ jobs:
       run: '& "$env:JAVA_HOME\bin\gu" install native-image'
     - name: Install upx
       run: choco install upx --version=3.96 --no-progress
+    - name: Set up Visual Studio shell
+      uses: egor-tensin/vs-shell@v2
     - name: Cache Maven packages
       uses: actions/cache@v2.1.7
       with:
         path: .m2
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-m2
-    - name: Set up Visual Studio shell
-      uses: egor-tensin/vs-shell@v2
     - name: Build with Maven
       run: |
         .\mvnw --batch-mode -Dsha1="$env:GITHUB_SHA" -Drevision="$env:REVISION" --settings .\.github\github-actions-windows-maven-settings.xml verify gluonfx:build gluonfx:package
