@@ -79,7 +79,7 @@ jobs:
     - name: Install upx
       run: brew install upx
     - name: Cache Maven packages
-      uses: actions/cache@v2.1.7
+      uses: actions/cache@v3
       with:
         path: ~/.m2
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
@@ -130,7 +130,7 @@ jobs:
         wget -q https://github.com/upx/upx/releases/download/v3.96/upx-3.96-amd64_linux.tar.xz
         tar xf upx-3.96-amd64_linux.tar.xz
     - name: Cache Maven packages
-      uses: actions/cache@v2.1.7
+      uses: actions/cache@v3
       with:
         path: ~/.m2
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
@@ -177,7 +177,7 @@ jobs:
     - name: Set up Visual Studio shell
       uses: egor-tensin/vs-shell@v2
     - name: Cache Maven packages
-      uses: actions/cache@v2.1.7
+      uses: actions/cache@v3
       with:
         path: .m2
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
@@ -294,7 +294,7 @@ jobs:
         java-version: ${{ env.JAVA_VERSION }}
         distribution: adopt
     - name: Cache Maven packages
-      uses: actions/cache@v2.1.7
+      uses: actions/cache@v3
       with:
         path: ~/.m2
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
