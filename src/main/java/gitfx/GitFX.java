@@ -34,7 +34,10 @@ public class GitFX extends Application {
 
 	Repository repository;
 
-	@SuppressFBWarnings(value = "BC_UNCONFIRMED_CAST_OF_RETURN_VALUE", justification = "FileRepositoryBuilder uses generics which spotbugs cant know")
+	@SuppressFBWarnings(
+			value = "BC_UNCONFIRMED_CAST_OF_RETURN_VALUE",
+			justification = "FileRepositoryBuilder uses generics which spotbugs cant know"
+	)
 	private Stream<RevCommit> jgit(String path) throws IOException {
 		File gitDir = Path.of(path).toAbsolutePath().normalize().toFile();
 		repository = new FileRepositoryBuilder().setMustExist(true)
