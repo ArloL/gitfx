@@ -5,7 +5,7 @@ import static java.util.stream.Collectors.joining;
 import java.io.File;
 import java.io.IOException;
 import java.io.UncheckedIOException;
-import java.nio.file.Paths;
+import java.nio.file.Path;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.stream.Stream;
 
@@ -36,7 +36,7 @@ public class GitFX extends Application {
 
 	@SuppressFBWarnings(value = "BC_UNCONFIRMED_CAST_OF_RETURN_VALUE", justification = "FileRepositoryBuilder uses generics which spotbugs cant know")
 	private Stream<RevCommit> jgit(String path) throws IOException {
-		File gitDir = Paths.get(path).toAbsolutePath().normalize().toFile();
+		File gitDir = Path.of(path).toAbsolutePath().normalize().toFile();
 		repository = new FileRepositoryBuilder().setMustExist(true)
 				.readEnvironment()
 				.findGitDir(gitDir)
