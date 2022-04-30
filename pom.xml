@@ -84,13 +84,14 @@
             </activation>
             <build>
                 <plugins>
+                <!-- 
                     <plugin>
                         <artifactId>maven-surefire-plugin</artifactId>
                         <configuration>
                             <argLine>-agentlib:native-image-agent=access-filter-file=src/main/resources/META-INF/native-image/filter-file.json,config-merge-dir=src/main/resources/META-INF/native-image</argLine>
                         </configuration>
                     </plugin>
-                   
+                 -->
                 </plugins>
             </build>
         </profile>
