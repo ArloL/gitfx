@@ -169,6 +169,8 @@ jobs:
         java: java${{ env.JAVA_VERSION }}
     - name: Install native-image module
       run: '& "$env:JAVA_HOME\bin\gu" install native-image'
+    - name: Remove WindowsImageHeapProviderFeature
+      run: '& 7z d "$env:JAVA_HOME\lib\svm\builder\svm.jar" com/oracle/svm/core/windows/WindowsImageHeapProviderFeature.class' 
     - name: Install upx
       run: choco install upx --version=3.96 --no-progress
     - name: Set up Visual Studio shell
