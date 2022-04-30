@@ -298,7 +298,6 @@ jobs:
       run: |
         ./mvnw \
           --batch-mode \
-          --settings ./.github/github-packages-maven-settings.xml \
           -Dsha1="${GITHUB_SHA}" \
           -Drevision="${REVISION}" \
           -DaltDeploymentRepository="github::default::https://maven.pkg.github.com/${GITHUB_REPOSITORY}" \
