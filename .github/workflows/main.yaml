@@ -177,7 +177,7 @@ jobs:
       uses: egor-tensin/vs-shell@v2
     - name: Build with Maven
       run: |
-        .\mvnw --batch-mode -Dsha1="$env:GITHUB_SHA" -Drevision="$env:REVISION" --settings .\.github\github-actions-windows-maven-settings.xml verify gluonfx:build gluonfx:package
+        .\mvnw --batch-mode -Dsha1="$env:GITHUB_SHA" -Drevision="$env:REVISION" verify gluonfx:build gluonfx:package
     - name: Compress executable
       run: |
         upx target/gluonfx/x86_64-windows/$env:ARTIFACT.exe
