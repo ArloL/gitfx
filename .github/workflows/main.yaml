@@ -42,7 +42,7 @@ jobs:
     outputs:
       new_version: ${{ steps.output.outputs.new_version }}
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v3.1.0
       with:
         # fetch entire history to analyze commits since last tag
         fetch-depth: 0
@@ -66,8 +66,8 @@ jobs:
     env:
       REVISION: ${{ needs.version.outputs.new_version }}
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-java@v3
+    - uses: actions/checkout@v3.1.0
+    - uses: actions/setup-java@v3.5.1
       with:
         java-version: ${{ env.JAVA_VERSION }}
         distribution: adopt
@@ -98,7 +98,7 @@ jobs:
         cp "target/gluonfx/x86_64-darwin/${ARTIFACT}" "target/artifacts/${ARTIFACT}-darwin-${REVISION}"
         cp -r "./src/main/packaging/macos/." "target/gluonfx/x86_64-darwin/${ARTIFACT}.app/Contents/Resources"
         cp -r "target/gluonfx/x86_64-darwin/${ARTIFACT}.app" "target/artifacts/"
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v3.1.0
       with:
         name: ${{ env.ARTIFACT }}-${{ github.job }}-${{ needs.version.outputs.new_version }}
         path: target/artifacts
@@ -110,8 +110,8 @@ jobs:
     env:
       REVISION: ${{ needs.version.outputs.new_version }}
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-java@v3
+    - uses: actions/checkout@v3.1.0
+    - uses: actions/setup-java@v3.5.1
       with:
         java-version: ${{ env.JAVA_VERSION }}
         distribution: adopt
@@ -144,7 +144,7 @@ jobs:
       run: |
         mkdir target/artifacts
         cp "target/gluonfx/x86_64-linux/${ARTIFACT}" "target/artifacts/${ARTIFACT}-linux-${REVISION}"
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v3.1.0
       with:
         name: ${{ env.ARTIFACT }}-${{ github.job }}-${{ needs.version.outputs.new_version }}
         path: target/artifacts
@@ -156,8 +156,8 @@ jobs:
     env:
       REVISION: ${{ needs.version.outputs.new_version }}
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-java@v3
+    - uses: actions/checkout@v3.1.0
+    - uses: actions/setup-java@v3.5.1
       with:
         java-version: ${{ env.JAVA_VERSION }}
         distribution: adopt
@@ -185,7 +185,7 @@ jobs:
       run: |
         mkdir target/artifacts
         copy "target\gluonfx\x86_64-windows\$env:ARTIFACT.exe" "target\artifacts\$env:ARTIFACT-windows-$env:REVISION.exe"
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v3.1.0
       with:
         name: ${{ env.ARTIFACT }}-${{ github.job }}-${{ needs.version.outputs.new_version }}
         path: target/artifacts
@@ -196,9 +196,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: [version, macos, linux, windows]
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v3.1.0
     - name: Download all workflow run artifacts
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v3.0.0
       with:
         path: ./target
     - name: Build project
@@ -273,7 +273,7 @@ jobs:
         asset_path: ./target/${{ env.ARTIFACT }}-macos-${{ needs.version.outputs.new_version }}/${{ env.ARTIFACT }}-darwin-${{ needs.version.outputs.new_version }}
         asset_name: ${{ env.ARTIFACT }}-macos
         asset_content_type: application/octet-stream
-    - uses: eregon/publish-release@v1
+    - uses: eregon/publish-release@v1.0.4
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
@@ -285,8 +285,8 @@ jobs:
     if: ${{ github.event_name == 'push' && !startsWith(github.ref, 'refs/heads/dependabot/') }}
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-java@v3
+    - uses: actions/checkout@v3.1.0
+    - uses: actions/setup-java@v3.5.1
       with:
         java-version: ${{ env.JAVA_VERSION }}
         distribution: adopt
