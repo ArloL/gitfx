@@ -50,12 +50,12 @@ jobs:
         distribution: adopt
         cache: 'maven'
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@v2.1.27
+      uses: github/codeql-action/init@v2.1.28
       with:
         languages: java
     - name: Autobuild
-      uses: github/codeql-action/autobuild@v2.1.27
+      uses: github/codeql-action/autobuild@v2.1.28
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v2.1.27
+      uses: github/codeql-action/analyze@v2.1.28
     - name: Make sure build did not change anything
       run: git diff --exit-code
