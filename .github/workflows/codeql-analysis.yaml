@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: main
   schedule:
-  - cron: '59 13 * * 4'
+  - cron: '54 17 17 * *'
 env:
   JAVA_VERSION: 17
 
