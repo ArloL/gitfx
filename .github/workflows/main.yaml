@@ -67,7 +67,7 @@ jobs:
       REVISION: ${{ needs.version.outputs.new_version }}
     steps:
     - uses: actions/checkout@v4.0.0
-    - uses: graalvm/setup-graalvm@v1.1.3
+    - uses: graalvm/setup-graalvm@v1.1.4
       with:
         version: ${{ env.GRAALVM_VERSION }}
         java-version: ${{ env.JAVA_VERSION }}
@@ -152,7 +152,7 @@ jobs:
       REVISION: ${{ needs.version.outputs.new_version }}
     steps:
     - uses: actions/checkout@v4.0.0
-    - uses: graalvm/setup-graalvm@v1.1.3
+    - uses: graalvm/setup-graalvm@v1.1.4
       with:
         version: ${{ env.GRAALVM_VERSION }}
         java-version: ${{ env.JAVA_VERSION }}
