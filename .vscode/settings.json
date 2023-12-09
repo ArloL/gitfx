@@ -1,0 +1,8 @@
+{
+    "editor.foldingImportsByDefault": true,
+    "java.compile.nullAnalysis.mode": "disabled",
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "[java]": {
+        "editor.formatOnSave": true,
+    },
+}
