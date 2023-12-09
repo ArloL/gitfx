@@ -1,7 +1,7 @@
 # Created by chorito https://github.com/ArloL/chorito
 
-# Created by https://www.toptal.com/developers/gitignore/api/intellij,maven
-# Edit at https://www.toptal.com/developers/gitignore?templates=intellij,maven
+# Created by https://www.toptal.com/developers/gitignore/api/intellij,maven,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=intellij,maven,visualstudiocode
 
 ### Intellij ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
@@ -135,8 +135,27 @@ buildNumber.properties
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
 
-# End of https://www.toptal.com/developers/gitignore/api/intellij,maven
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+.ionide
+
+# End of https://www.toptal.com/developers/gitignore/api/intellij,maven,visualstudiocode
 
 .flattened-pom.xml
 
-# End of chorito
+# End of chorito. Add your ignores after this line and they will be preserved.
