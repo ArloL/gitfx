@@ -14,3 +14,12 @@ end_of_line = lf
 
 [pom.xml]
 indent_style = tab
+
+[.vscode/**.json]
+insert_final_newline = false
+
+[.idea/**]
+insert_final_newline = false
+
+[**.java]
+indent_style = tab
