@@ -93,7 +93,7 @@ jobs:
         cp "target/gluonfx/x86_64-darwin/${ARTIFACT}" "target/artifacts/${ARTIFACT}-darwin-${REVISION}"
         cp -r "./src/main/packaging/macos/." "target/gluonfx/x86_64-darwin/${ARTIFACT}.app/Contents/Resources"
         cp -r "target/gluonfx/x86_64-darwin/${ARTIFACT}.app" "target/artifacts/"
-    - uses: actions/upload-artifact@v3.1.3
+    - uses: actions/upload-artifact@v4.0.0
       with:
         name: ${{ env.ARTIFACT }}-${{ github.job }}-${{ needs.version.outputs.new_version }}
         path: target/artifacts
@@ -139,7 +139,7 @@ jobs:
       run: |
         mkdir target/artifacts
         cp "target/gluonfx/x86_64-linux/${ARTIFACT}" "target/artifacts/${ARTIFACT}-linux-${REVISION}"
-    - uses: actions/upload-artifact@v3.1.3
+    - uses: actions/upload-artifact@v4.0.0
       with:
         name: ${{ env.ARTIFACT }}-${{ github.job }}-${{ needs.version.outputs.new_version }}
         path: target/artifacts
@@ -173,7 +173,7 @@ jobs:
       run: |
         mkdir target/artifacts
         copy "target\gluonfx\x86_64-windows\$env:ARTIFACT.exe" "target\artifacts\$env:ARTIFACT-windows-$env:REVISION.exe"
-    - uses: actions/upload-artifact@v3.1.3
+    - uses: actions/upload-artifact@v4.0.0
       with:
         name: ${{ env.ARTIFACT }}-${{ github.job }}-${{ needs.version.outputs.new_version }}
         path: target/artifacts
