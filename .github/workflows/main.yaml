@@ -76,8 +76,6 @@ jobs:
         components: 'native-image'
         github-token: ${{ secrets.GITHUB_TOKEN }}
         cache: 'maven'
-    - name: Install upx
-      run: brew install upx
     - name: Build with Maven
       run: |
         set -o xtrace
@@ -86,9 +84,6 @@ jobs:
           -Dsha1="${GITHUB_SHA}" \
           -Drevision="${REVISION}" \
           verify gluonfx:build gluonfx:package
-    - name: Compress executable
-      run: |
-        upx "target/gluonfx/x86_64-darwin/${ARTIFACT}"
     - name: Move artifacts
       run: |
         mkdir target/artifacts
@@ -122,10 +117,6 @@ jobs:
       run: sudo apt-get update && sudo apt-get install libasound2-dev libavcodec-dev libavformat-dev libavutil-dev libgl-dev libgtk-3-dev libpango1.0-dev libxtst-dev
     - name: Install native-image module
       run: gu install native-image
-    - name: Install upx
-      run: |
-        wget -q https://github.com/upx/upx/releases/download/v3.96/upx-3.96-amd64_linux.tar.xz
-        tar xf upx-3.96-amd64_linux.tar.xz
     - name: Build with Maven
       run: |
         set -o xtrace
@@ -134,9 +125,6 @@ jobs:
           -Dsha1="${GITHUB_SHA}" \
           -Drevision="${REVISION}" \
           verify gluonfx:build gluonfx:package
-    - name: Compress executable
-      run: |
-        ./upx-3.96-amd64_linux/upx "target/gluonfx/x86_64-linux/${ARTIFACT}"
     - name: Move artifacts
       run: |
         mkdir target/artifacts
@@ -163,14 +151,9 @@ jobs:
         cache: 'maven'
     - name: Remove WindowsImageHeapProviderFeature
       run: '& 7z d "$env:JAVA_HOME\lib\svm\builder\svm.jar" com/oracle/svm/core/windows/WindowsImageHeapProviderFeature.class'
-    - name: Install upx
-      run: choco install upx --version=3.96 --no-progress
     - name: Build with Maven
       run: |
         .\mvnw --batch-mode -Dsha1="$env:GITHUB_SHA" -Drevision="$env:REVISION" verify gluonfx:build gluonfx:package
-    - name: Compress executable
-      run: |
-        upx target/gluonfx/x86_64-windows/$env:ARTIFACT.exe
     - name: Move artifacts
       run: |
         mkdir target/artifacts
