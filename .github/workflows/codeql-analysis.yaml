@@ -52,12 +52,12 @@ jobs:
         distribution: temurin
         cache: 'maven'
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@v3.22.11
+      uses: github/codeql-action/init@v3.22.12
       with:
         languages: java
     - name: Autobuild
-      uses: github/codeql-action/autobuild@v3.22.11
+      uses: github/codeql-action/autobuild@v3.22.12
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v3.22.11
+      uses: github/codeql-action/analyze@v3.22.12
     - name: Make sure build did not change anything
       run: git diff --exit-code
