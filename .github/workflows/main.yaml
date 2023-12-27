@@ -6,7 +6,6 @@ on:
   - cron: '45 22 4 * *'
 env:
   ARTIFACT: gitfx
-  GRAALVM_VERSION: 22.1.0
   JAVA_VERSION: 17
 
 jobs:
@@ -69,13 +68,15 @@ jobs:
       REVISION: ${{ needs.version.outputs.new_version }}
     steps:
     - uses: actions/checkout@v4.1.1
-    - uses: graalvm/setup-graalvm@v1.1.5
+    - uses: gluonhq/setup-graalvm@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - uses: actions/cache@v3.3.2
       with:
-        version: ${{ env.GRAALVM_VERSION }}
-        java-version: ${{ env.JAVA_VERSION }}
-        components: 'native-image'
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        cache: 'maven'
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-maven-
     - name: Build with Maven
       run: |
         set -o xtrace
@@ -104,20 +105,17 @@ jobs:
       REVISION: ${{ needs.version.outputs.new_version }}
     steps:
     - uses: actions/checkout@v4.1.1
-    - uses: actions/setup-java@v4.0.0
+    - uses: gluonhq/setup-graalvm@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - uses: actions/cache@v3.3.2
       with:
-        java-version: ${{ env.JAVA_VERSION }}
-        distribution: temurin
-        cache: 'maven'
-    - name: Setup Graalvm
-      uses: DeLaGuardo/setup-graalvm@5.0
-      with:
-        graalvm: ${{ env.GRAALVM_VERSION }}
-        java: java${{ env.JAVA_VERSION }}
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-maven-
     - name: Install libraries
       run: sudo apt-get update && sudo apt-get install libasound2-dev libavcodec-dev libavformat-dev libavutil-dev libgl-dev libgtk-3-dev libpango1.0-dev libxtst-dev
-    - name: Install native-image module
-      run: gu install native-image
     - name: Build with Maven
       run: |
         set -o xtrace
@@ -143,15 +141,17 @@ jobs:
       REVISION: ${{ needs.version.outputs.new_version }}
     steps:
     - uses: actions/checkout@v4.1.1
-    - uses: graalvm/setup-graalvm@v1.1.5
+    - uses: gluonhq/setup-graalvm@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - uses: microsoft/setup-msbuild@v1.0.2
+    - uses: egor-tensin/vs-shell@v1
+    - uses: actions/cache@v3.3.2
       with:
-        version: ${{ env.GRAALVM_VERSION }}
-        java-version: ${{ env.JAVA_VERSION }}
-        components: 'native-image'
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        cache: 'maven'
-    - name: Remove WindowsImageHeapProviderFeature
-      run: '& 7z d "$env:JAVA_HOME\lib\svm\builder\svm.jar" com/oracle/svm/core/windows/WindowsImageHeapProviderFeature.class'
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-maven-
     - name: Build with Maven
       run: |
         .\mvnw --batch-mode -Dsha1="$env:GITHUB_SHA" -Drevision="$env:REVISION" verify gluonfx:build gluonfx:package
