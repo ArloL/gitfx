@@ -147,7 +147,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - uses: microsoft/setup-msbuild@v1.3.1
-    - uses: egor-tensin/vs-shell@v1
+    - uses: egor-tensin/vs-shell@v2
     - uses: actions/cache@v3.3.2
       with:
         path: ~/.m2/repository
