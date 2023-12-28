@@ -146,7 +146,7 @@ jobs:
     - uses: gluonhq/setup-graalvm@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - uses: microsoft/setup-msbuild@v1.0.2
+    - uses: microsoft/setup-msbuild@v1.3.1
     - uses: egor-tensin/vs-shell@v1
     - uses: actions/cache@v3.3.2
       with:
