@@ -42,11 +42,17 @@ jobs:
       run: set
   analyze:
     name: Analyze
-    runs-on: ubuntu-latest
+    runs-on: ${{ (matrix.language == 'swift' && 'macos-latest') || 'ubuntu-latest' }}
+    timeout-minutes: ${{ (matrix.language == 'swift' && 120) || 360 }}
     permissions:
       actions: read
       contents: read
       security-events: write
+    strategy:
+      fail-fast: false
+      matrix:
+        language:
+        - java-kotlin
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4.1.1
@@ -58,10 +64,12 @@ jobs:
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v3.22.12
       with:
-        languages: java
+        languages: ${{ matrix.language }}
     - name: Autobuild
       uses: github/codeql-action/autobuild@v3.22.12
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3.22.12
+      with:
+        category: "/language:${{matrix.language}}"
     - name: Make sure build did not change anything
       run: git diff --exit-code
