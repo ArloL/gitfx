@@ -73,7 +73,7 @@ jobs:
     - uses: gluonhq/setup-graalvm@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - uses: actions/cache@v3.3.2
+    - uses: actions/cache@v3.3.3
       with:
         path: ~/.m2/repository
         key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
@@ -110,7 +110,7 @@ jobs:
     - uses: gluonhq/setup-graalvm@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - uses: actions/cache@v3.3.2
+    - uses: actions/cache@v3.3.3
       with:
         path: ~/.m2/repository
         key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
@@ -148,7 +148,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - uses: microsoft/setup-msbuild@v1.3.1
     - uses: egor-tensin/vs-shell@v2
-    - uses: actions/cache@v3.3.2
+    - uses: actions/cache@v3.3.3
       with:
         path: ~/.m2/repository
         key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
