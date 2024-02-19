@@ -237,7 +237,7 @@ jobs:
         asset_path: ./target/${{ env.ARTIFACT }}-macos-${{ needs.version.outputs.new_version }}/${{ env.ARTIFACT }}-darwin-${{ needs.version.outputs.new_version }}
         asset_name: ${{ env.ARTIFACT }}-macos
         asset_content_type: application/octet-stream
-    - uses: eregon/publish-release@v1.0.5
+    - uses: eregon/publish-release@v1.0.6
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
