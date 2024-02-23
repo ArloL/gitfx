@@ -62,13 +62,13 @@ jobs:
         distribution: temurin
         cache: 'maven'
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@v3.24.3
+      uses: github/codeql-action/init@v3.24.4
       with:
         languages: ${{ matrix.language }}
     - name: Autobuild
-      uses: github/codeql-action/autobuild@v3.24.3
+      uses: github/codeql-action/autobuild@v3.24.4
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v3.24.3
+      uses: github/codeql-action/analyze@v3.24.4
       with:
         category: "/language:${{matrix.language}}"
     - name: Make sure build did not change anything
