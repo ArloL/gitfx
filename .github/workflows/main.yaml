@@ -196,42 +196,42 @@ jobs:
         body: ${{ needs.version.outputs.changelog }}
         draft: true
     - name: Upload Release Asset
-      uses: shogo82148/actions-upload-release-asset@v1.7.4
+      uses: shogo82148/actions-upload-release-asset@v1.7.5
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ./target/linux.zip
         asset_name: ${{ env.ARTIFACT }}-linux-${{ needs.version.outputs.new_version }}.zip
         asset_content_type: application/zip
     - name: Upload Release Asset
-      uses: shogo82148/actions-upload-release-asset@v1.7.4
+      uses: shogo82148/actions-upload-release-asset@v1.7.5
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ./target/${{ env.ARTIFACT }}-linux-${{ needs.version.outputs.new_version }}/${{ env.ARTIFACT }}-linux-${{ needs.version.outputs.new_version }}
         asset_name: ${{ env.ARTIFACT }}-linux
         asset_content_type: application/x-executable
     - name: Upload Release Asset
-      uses: shogo82148/actions-upload-release-asset@v1.7.4
+      uses: shogo82148/actions-upload-release-asset@v1.7.5
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ./target/windows.zip
         asset_name: ${{ env.ARTIFACT }}-windows-${{ needs.version.outputs.new_version }}.zip
         asset_content_type: application/zip
     - name: Upload Release Asset
-      uses: shogo82148/actions-upload-release-asset@v1.7.4
+      uses: shogo82148/actions-upload-release-asset@v1.7.5
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ./target/${{ env.ARTIFACT }}-windows-${{ needs.version.outputs.new_version }}/${{ env.ARTIFACT }}-windows-${{ needs.version.outputs.new_version }}.exe
         asset_name: ${{ env.ARTIFACT }}-windows.exe
         asset_content_type: application/vnd.microsoft.portable-executable
     - name: Upload Release Asset
-      uses: shogo82148/actions-upload-release-asset@v1.7.4
+      uses: shogo82148/actions-upload-release-asset@v1.7.5
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ./target/macos.zip
         asset_name: ${{ env.ARTIFACT }}-macos-${{ needs.version.outputs.new_version }}.zip
         asset_content_type: application/zip
     - name: Upload Release Asset
-      uses: shogo82148/actions-upload-release-asset@v1.7.4
+      uses: shogo82148/actions-upload-release-asset@v1.7.5
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ./target/${{ env.ARTIFACT }}-macos-${{ needs.version.outputs.new_version }}/${{ env.ARTIFACT }}-darwin-${{ needs.version.outputs.new_version }}
